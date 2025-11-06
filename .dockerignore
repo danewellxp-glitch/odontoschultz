@@ -1,0 +1,33 @@
+# Git
+.git
+.gitignore
+
+# Docker
+docker-compose.yml
+Dockerfile
+.dockerignore
+
+# Environment files
+.env
+.env.local
+
+# Documentation
+README.md
+
+# Node modules (se houver)
+node_modules
+npm-debug.log
+
+# IDE
+.vscode
+.idea
+.claude
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Volumes locais
+postgres_data
+pgadmin_data
+n8n_data
