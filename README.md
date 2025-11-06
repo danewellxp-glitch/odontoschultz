@@ -43,13 +43,13 @@ docker-compose up -d
 
 **n8n (Automação)**
 - URL: http://localhost:5678
-- Usuário: `admin`
-- Senha: `admin123`
+- Usuário:`
+- Senha: 
 
 **pgAdmin (Database Manager)**
 - URL: http://localhost:5050
-- Email: `admin@admin.com`
-- Senha: `admin123`
+- Email: 
+- Senha: 
 
 **PostgreSQL (Direto)**
 - Host: localhost
