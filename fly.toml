@@ -4,9 +4,19 @@
 #
 
 app = 'odontoschultz'
-primary_region = 'iad'
+primary_region = 'gru'
 
 [build]
+  dockerfile = "Dockerfile"
+
+[env]
+  N8N_PORT = "5678"
+  N8N_PROTOCOL = "https"
+  N8N_HOST = "0.0.0.0"
+  NODE_ENV = "production"
+  N8N_RUNNERS_ENABLED = "true"
+  EXECUTIONS_MODE = "regular"
+  GENERIC_TIMEZONE = "America/Sao_Paulo"
 
 [http_service]
   internal_port = 5678
@@ -16,8 +26,22 @@ primary_region = 'iad'
   min_machines_running = 0
   processes = ['app']
 
+  # Health check para garantir que o n8n está respondendo
+  [http_service.checks]
+    [http_service.checks.health]
+      grace_period = "30s"
+      interval = "15s"
+      method = "GET"
+      timeout = "5s"
+      path = "/healthz"
+
 [[vm]]
   memory = '1gb'
   cpu_kind = 'shared'
   cpus = 1
-  memory_mb = 1024
+
+# Volume para persistência dos dados do n8n
+[mounts]
+  source = "n8n_data"
+  destination = "/home/node/.n8n"
+  initial_size = "1gb"

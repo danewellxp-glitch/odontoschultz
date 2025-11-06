@@ -1,19 +1,24 @@
 FROM n8nio/n8n:latest
 
-# Configurações de ambiente
+# Configurações de ambiente para produção
 ENV N8N_PORT=5678
-ENV N8N_PROTOCOL=http
+ENV N8N_PROTOCOL=https
 ENV N8N_HOST=0.0.0.0
 ENV NODE_ENV=production
+
+# Configurações adicionais para Fly.io
+ENV N8N_RUNNERS_ENABLED=true
+ENV EXECUTIONS_MODE=regular
 
 # Expor porta
 EXPOSE 5678
 
 # Criar diretórios necessários
-RUN mkdir -p /home/node/.n8n/workflows /home/node/.n8n/credentials
+USER root
+RUN mkdir -p /home/node/.n8n/workflows /home/node/.n8n/credentials && \
+    chown -R node:node /home/node/.n8n
 
-# Volumes para persistência
-VOLUME ["/home/node/.n8n"]
+# Voltar para usuário node
+USER node
 
-# Comando de inicialização
-CMD ["n8n", "start"]
+# A imagem base já define o CMD correto, não precisamos sobrescrever

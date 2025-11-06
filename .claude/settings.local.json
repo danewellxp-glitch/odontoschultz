@@ -4,7 +4,9 @@
       "Bash(docker-compose up:*)",
       "Bash(docker-compose ps:*)",
       "Bash(docker-compose logs:*)",
-      "Bash(docker-compose down:*)"
+      "Bash(docker-compose down:*)",
+      "Bash(tree:*)",
+      "Bash(flyctl status:*)"
     ],
     "deny": [],
     "ask": []
