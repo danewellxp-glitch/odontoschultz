@@ -12,7 +12,7 @@ primary_region = 'gru'
 [env]
   N8N_PORT = "5678"
   N8N_PROTOCOL = "https"
-  N8N_HOST = "odontoschultz.fly.dev"
+  N8N_HOST = "0.0.0.0"
   WEBHOOK_URL = "https://odontoschultz.fly.dev"
   NODE_ENV = "production"
   N8N_RUNNERS_ENABLED = "true"
