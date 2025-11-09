@@ -24,7 +24,8 @@
       "Bash(fly ssh console:*)",
       "Bash(ping:*)",
       "Bash(npx neonctl@latest init:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []
